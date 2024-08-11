@@ -1,75 +1,53 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
-    <xs:element name="foodDelivery">
-        <xs:complexType>
-            <xs:sequence>
-                <xs:element name="order" maxOccurs="unbounded">
-                    <xs:complexType>
-                        <xs:sequence>
-                            <xs:element name="customer">
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="name" type="xs:string"/>
-                                        <xs:element name="email" type="xs:string"/>
-                                    </xs:sequence>
-                                </xs:complexType>
-                            </xs:element>
-                            <xs:element name="restaurant">
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="name" type="xs:string"/>
-                                        <xs:element name="location" type="xs:string"/>
-                                    </xs:sequence>
-                                </xs:complexType>
-                            </xs:element>
-                            <xs:element name="foodItems">
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="item" maxOccurs="unbounded">
-                                            <xs:complexType>
-                                                <xs:sequence>
-                                                    <xs:element name="name" type="xs:string"/>
-                                                    <xs:element name="quantity">
-                                                        <xs:simpleType>
-                                                            <xs:restriction base="xs:int">
-                                                                <xs:minInclusive value="1"/>
-                                                                <xs:maxInclusive value="10"/>
-                                                            </xs:restriction>
-                                                        </xs:simpleType>
-                                                    </xs:element>
-                                                    <xs:element name="price">
-                                                        <xs:simpleType>
-                                                            <xs:restriction base="xs:decimal">
-                                                                <xs:minInclusive value="0.99"/>
-                                                            </xs:restriction>
-                                                        </xs:simpleType>
-                                                    </xs:element>
-                                                </xs:sequence>
-                                            </xs:complexType>
-                                        </xs:element>
-                                    </xs:sequence>
-                                </xs:complexType>
-                            </xs:element>
-                            <xs:element name="delivery">
-                                <xs:complexType>
-                                    <xs:sequence>
-                                        <xs:element name="address" type="xs:string"/>
-                                        <xs:element name="deliveryTime">
-                                            <xs:simpleType>
-                                                <xs:restriction base="xs:int">
-                                                    <xs:minInclusive value="10"/>
-                                                    <xs:maxInclusive value="120"/>
-                                                </xs:restriction>
-                                            </xs:simpleType>
-                                        </xs:element>
-                                        <xs:element name="deliveryFee" type="xs:decimal"/>
-                                    </xs:sequence>
-                                </xs:complexType>
-                            </xs:element>
-                        </xs:sequence>
-                    </xs:complexType>
-                </xs:element>
-            </xs:sequence>
-        </xs:complexType>
-    </xs:element>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="www.abc.com/restaurant" xmlns:rest="www.abc.com/restaurant" elementFormDefault="qualified">
+
+    <xs:element name="restaurants" type="rest:restaurantsType"></xs:element>
+    <xs:complexType name="restaurantsType">
+        <xs:sequence>
+            <xs:element name="restaurant" type="rest:restaurantType" maxOccurs="unbounded">
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="restaurantType">
+        <xs:sequence>
+            <xs:element name="restaurant-id" type="xs:integer"></xs:element>
+            <xs:element name="restaurant-name" type="xs:string"/>
+            <xs:element name="hours" type="rest:hoursType"/>
+            <xs:element name="menu" type="rest:menuType"></xs:element>
+            <xs:element name="reviews" type="xs:string"></xs:element>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+    </xs:complexType>
+
+    <xs:simpleType name="hoursType">
+        <xs:restriction base="xs:string">
+                <xs:pattern value="(Mon|Tue|Wed|Thu|Fri|Sat|Sun)-(Mon|Tue|Wed|Thu|Fri|Sat|Sun): [0-9]{1,2}(am|pm)-[0-9]{1,2}(am|pm)"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="menuType">
+        <xs:sequence>
+            <xs:element name="dish" maxOccurs="unbounded" type="rest:dishType"></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="dishType">
+        <xs:sequence>
+            <xs:element name="dish-name" type="xs:string"/>
+            <xs:element name="description" type="xs:string"/>
+            <xs:element name="price" type="rest:priceType"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:string" use="required"></xs:attribute>
+    </xs:complexType>
+
+    <xs:simpleType name="priceType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0.00"/>
+            <xs:maxInclusive value="7.00"/>
+            <xs:fractionDigits value="2"/>
+        </xs:restriction>
+    </xs:simpleType>
+
 </xs:schema>
