@@ -1,31 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<foodDelivery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-              xsi:noNamespaceSchemaLocation="food_delivery.xsd">
-    <order id="001">
-        <customer>
-            <name>Emily Coooper</name>
-            <email>emilycoooper@example.com</email>
-        </customer>
-        <restaurant>
-            <name>Pizza Palace</name>
-            <location>Food Street, Bangalore</location>
-        </restaurant>
-        <foodItems>
-            <item>
-                <name>Margherita Pizza</name>
-                <quantity>2</quantity>
-                <price>15.99</price>
-            </item>
-            <item>
-                <name>Garlic Bread</name>
-                <quantity>1</quantity>
-                <price>8.49</price>
-            </item>
-        </foodItems>
-        <delivery>
-            <address>123 Elm Street, City</address>
-            <deliveryTime>45</deliveryTime>
-            <deliveryFee>5.00</deliveryFee>
-        </delivery>
-    </order>
-</foodDelivery>
+<?xml-model href="restaurant.xsd" type="application/xml" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<?xml-stylesheet type="text/xsl" href="restaurant.xsl"?>
+
+<restaurants xmlns="www.abc.com/restaurant">
+    <restaurant id="R1">
+        <restaurant-id>1</restaurant-id>
+        <restaurant-name>McDonald's</restaurant-name>
+        <hours>Mon-Sun: 8am-10pm</hours>
+        <menu>
+            <dish id="D1">
+                <dish-name>Big Mac</dish-name>
+                <description>Two all-beef patties, special sauce, lettuce, cheese, pickles, onions on a sesame seed bun.</description>
+                <price>5.99</price>
+            </dish>
+        </menu>
+        <reviews>This restaurant is great! The food is delicious and the service is fast.</reviews>
+    </restaurant>
+    <restaurant id="R2">
+        <restaurant-id>2</restaurant-id>
+        <restaurant-name>Burger King</restaurant-name>
+        <hours>Mon-Sun: 7am-11pm</hours>
+        <menu>
+            <dish id="D2">
+                <dish-name>Whopper</dish-name>
+                <description>Flame-grilled beef patty, lettuce, tomato, mayonnaise, ketchup, pickles, and onions on a sesame seed bun.</description>
+                <price>6.99</price>
+            </dish>
+        </menu>
+        <reviews>This restaurant is okay. The food is decent but the service is slow.</reviews>
+    </restaurant>
+    <restaurant id="R3">
+        <restaurant-id>3</restaurant-id>
+        <restaurant-name>KFC</restaurant-name>
+        <hours>Mon-Su: 10am-10pm</hours>
+        <menu>
+            <dish id="D3">
+                <dish-name>Original Recipe Chicken</dish-name>
+                <description>Hand-breaded and pressure-cooked chicken pieces made with the secret recipe of 11 herbs and spices.</description>
+                <price>6.99</price>
+            </dish>
+        </menu>
+        <reviews>This restaurant is good. The chicken is crispy and flavorful.</reviews>
+    </restaurant>
+    <restaurant id="R4">
+        <restaurant-id>4</restaurant-id>
+        <restauran-name>Subway</restauran-name>
+        <hours>Mon-Sun: 8am-10pm</hours>
+        <menu>
+            <dish id="D4">
+                <dish-name>BMT</dish-name>
+                <description>Biggest, Meatiest, Tastiest sandwich made with pepperoni, salami, and ham.</description>
+                <price>6.99</price>
+            </dish>
+        </menu>
+        <reviews>This restaurant is healthy. The sandwiches are made with fresh ingredients.</reviews>
+    </restaurant>
+    <restaurant id="R5">
+        <restaurant-id>5</restaurant-id>
+        <restaurant-name>Taco Bell</restaurant-name>
+        <hours>Mon-Sun: 10am-1am</hours>
+        <menu>
+            <dish id="D5">
+                <dish-name>Crunchwrap Supreme</dish-name>
+                <description>Beef, lettuce, tomatoes, sour cream, and shredded cheese wrapped in a tortilla with a crunchy taco shell.</description>
+                <price>Five dollars</price>
+            </dish>
+        </menu>
+        <reviews>This restaurant is great! The food is delicious and affordable.</reviews>
+    </restaurant>
+    <restaurant id="R6">
+        <restaurant-id>6</restaurant-id>
+        <restaurant-name>Wendy's</restaurant-name>
+        <hours>Mon-Sun: 10am-1am</hours>
+        <menu>
+            <dish id="D6">
+                <dish-name>Baconator</dish-name>
+                <description>Two beef patties, six strips of bacon, three slices of cheese, and a special sauce.</description>
+                <price>7.99</price>
+            </dish>
+            <dish id="D8">
+                <dish-name>Spicy Chicken Sandwich</dish-name>
+                <description>Spicy breaded chicken breast with lettuce, tomato, and mayo on a toasted bun.</description>
+                <price>6.49</price>
+            </dish>
+        </menu>
+        <reviews>This restaurant is good. The burgers are juicy and flavorful.</reviews>
+    </restaurant>
+    <restaurant id="R7">
+        <restaurant-id>7</restaurant-id>
+        <restaurant-name>Carl's Jr.</restaurant-name>
+        <hours>Mon-Sun: 6am-12am</hours>
+        <menu>
+            <dish id="D7">
+                <dish-name>Star Burger</dish-name>
+                <description>Charbroiled beef patty, cheese, lettuce, tomato, and a special sauce on a sesame seed bun.</description>
+                <price>5.99</price>
+            </dish>
+        </menu>
+        <reviews>This restaurant is okay. The food is decent but the service is slow.</reviews>
+    </restaurant>
+</restaurants>
