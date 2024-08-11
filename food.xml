@@ -3,12 +3,12 @@
               xsi:noNamespaceSchemaLocation="food_delivery.xsd">
     <order id="001">
         <customer>
-            <name>John Doe</name>
-            <email>johndoe@example.com</email>
+            <name>Emily Coooper</name>
+            <email>emilycoooper@example.com</email>
         </customer>
         <restaurant>
             <name>Pizza Palace</name>
-            <location>Main Street, City</location>
+            <location>Food Street, Bangalore</location>
         </restaurant>
         <foodItems>
             <item>
